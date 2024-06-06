@@ -1,0 +1,41 @@
+.header-section {
+    background-image: url('../images/bg-image.png'); /* Correct reference to static folder */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .header-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Change color as needed */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .header-container h1, .header-container p {
+    color: #333; /* Adjust text color as needed */
+  }
+  .btn-custom {
+    background-color: rgb(241, 148, 163);
+    color: white;
+    border: none;
+  }
+  .btn-custom:hover {
+    background-color: grey;
+    color: white;
+  }
+  .motivation-section {
+    padding: 50px 0;
+    text-align: center;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(241, 148, 163);
+  }
+  .footer p {
+    color: white;
+    font-size: 20px;
+  }

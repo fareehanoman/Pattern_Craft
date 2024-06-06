@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatternCraft</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">PatternCraft</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page Content -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Generate Textile Patterns</h1>
+                <form action="generated-pattern.html">
+                    <div class="form-group">
+                        <form>
+                            <div class="form-row">
+                              <div class="form-group col-md-11" style="margin: 40px;">
+                                <label for="inputPrompt">Enter Prompt to Generate Pattern:</label>
+                                <input type="prompt" class="form-control" id="inputPrompt" placeholder="geometric pattern with flowers">
+                              </div>
+                        </form>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Generate Pattern</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+  <!-- Footer -->
+<footer style="background-color: blue; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;left: 0;">
+    All rights reserved
+</footer>
+
+
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
