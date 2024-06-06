@@ -3,6 +3,7 @@ from app import db
 import uuid
 import requests
 import base64
+from datetime import datetime, timezone
 
 HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
 headers = {"Authorization": f"Bearer YOUR_API_TOKEN"}
@@ -40,7 +41,7 @@ class Prompt:
         "user_id": session['user']['_id'],
         "prompt": prompt_text,
         "image": base64_string,
-        "created_at": request.form.get('created_at')
+        "created_at": datetime.now(timezone.utc).isoformat()  # Use current datetime in UTC
       }
 
       # Save the prompt to the database
