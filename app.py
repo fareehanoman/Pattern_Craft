@@ -11,46 +11,48 @@ db = client.user_login_system
 
 # Decorators
 def login_required(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return f(*args, **kwargs)
-        else:
-            return redirect('/')
-    return wrap
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return f(*args, **kwargs)
+    else:
+      return redirect('/')
+  
+  return wrap
 
 # Routes
-# Assuming user.py and prompts.py are in the same directory as this script
-import user
-import prompts
+from user import routes
+from prompts import routes
 
 # Sign up / Sign In Functionality
 @app.route('/')
-def home():
-    return render_template('landing-page.html')
+def landingpage():
+  return render_template('landing-page.html')
+
+@app.route('/login.html')
+def loginpage():
+  return render_template('login.html')
+
+@app.route('/signup.html')
+def signuppage():
+  return render_template('signup.html')
 
 # Frontend 
 @app.route('/generated-pattern.html')
 def generatedpattern():
-    return render_template('generated-pattern.html')
+  return render_template('generated-pattern.html')
 
 @app.route('/gallery.html')
 def gallery():
-    return render_template('gallery.html')
+  return render_template('gallery.html')
 
 @app.route('/about.html')
 def about():
-    return render_template('about.html')
+  return render_template('about.html')
 
 @app.route('/index2.html/')
 def index2():
-    return render_template('index2.html')
-
-# Uncomment and modify this route if you need the dashboard
-#@app.route('/dashboard/')
-#@login_required
-#def dashboard():
-#    return render_template('dashboard.html')
+  return render_template('index2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
