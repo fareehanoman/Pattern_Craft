@@ -1,92 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PatternCraft</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+{% block title %}Gallery - PatternCraft{% endblock %}
 
-<body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">PatternCraft</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li>
-                <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-
-        <h1 class="fw-light text-center text-lg-start mt-4 mb-0">Gallery</h1>
-      
-        <hr class="mt-2 mb-5">
-      
-        <div class="row text-center text-lg-start">
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/1.jpeg') }}" alt="">
-                <figcaption>A sleek and sophisticated stripe pattern in monochrome tones</figcaption>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/2.jpeg') }}" alt="">
-              <figcaption>Abstract geometric design in bold, contrasting colors</figcaption>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/3.jpeg') }}" alt="">
-              <figcaption>A playful polka dot print in vibrant shades</figcaption>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/4.jpeg') }}" alt="">
-              <figcaption>A pattern that captures the essence of a bustling cityscape at night</figcaption>
-
-            </a>
-          </div>
-         
-        </div>
-      
-      </div>
-
-
-
-  <!-- Footer -->
-<footer style="background-color: blue; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;left: 0;">
-    All rights reserved
-</footer>
-
-
-
-    <!-- Bootstrap Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
-       
-       
+{% block content %}
+<h1 class="fw-light text-center text-lg-start mt-4 mb-0">Gallery</h1>
+<hr class="mt-2 mb-5">
+<div class="row text-center text-lg-start">
+  <div class="col-lg-3 col-md-4 col-6">
+    <a href="#" class="d-block mb-4 h-100">
+      <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/1.jpeg') }}" alt="">
+      <figcaption>A sleek and sophisticated stripe pattern in monochrome tones</figcaption>
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-6">
+    <a href="#" class="d-block mb-4 h-100">
+      <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/2.jpeg') }}" alt="">
+      <figcaption>Abstract geometric design in bold, contrasting colors</figcaption>
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-6">
+    <a href="#" class="d-block mb-4 h-100">
+      <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/3.jpeg') }}" alt="">
+      <figcaption>A playful polka dot print in vibrant shades</figcaption>
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-6">
+    <a href="#" class="d-block mb-4 h-100">
+      <img class="img-fluid img-thumbnail" src="{{ url_for('static', filename='images/4.jpeg') }}" alt="">
+      <figcaption>A pattern that captures the essence of a bustling cityscape at night</figcaption>
+    </a>
+  </div>
+</div>
+{% endblock %}

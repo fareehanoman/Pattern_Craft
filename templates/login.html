@@ -1,29 +1,21 @@
 {% extends "base.html" %}
 
+{% block title %}Textile Pattern Generation{% endblock %}
+
+{% block navbar %}{% endblock %} <!-- Override navbar block to exclude it -->
+
 {% block content %}
-
-<div class="card-wrapper"></div>
-
-    <div class="card">
-
-      <h1 class="center">Log In</h1>
-
-      <form name="login_form">
-
-        <label for="email">Email</label>
-        <input type="email" name="email" class="field" required>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" class="field" required>
-
-        <p class="error error--hidden"></p>
-
-        <input type="submit" value="Let's Generate Patterns" class="btn">
-      
-      </form>
-      
-    </div>
-  
+<div class="card-wrapper">
+  <div class="card">
+    <h1 class="center">Log In</h1>
+    <form name="login_form" method="POST" action="{{ url_for('login') }}">
+      <label for="email">Email</label>
+      <input type="email" name="email" class="field" required>
+      <label for="password">Password</label>
+      <input type="password" name="password" class="field" required>
+      <p class="error error--hidden"></p>
+      <input type="submit" value="Let's Generate Patterns" class="btn-custom">
+    </form>
   </div>
-
+</div>
 {% endblock %}

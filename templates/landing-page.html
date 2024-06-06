@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Textile Pattern Generation</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/land-style.css') }}" rel="stylesheet">
-</head>
-<body>
+{% extends "base.html" %}
 
-  <!-- Header Section -->
-  <div class="header-section">
-    <div class="header-container">
-      <h1>PatternCraft Textile Design Generator</h1>
-      <p>Your source for innovative textile designs.</p>
-      <div class="mt-4">
-          <!-- Integrated login and signup forms with buttons -->
-        <a href="login.html" class="btn btn-custom">Log In</a>
+{% block title %}Textile Pattern Generation{% endblock %}
+
+{% block navbar %}{% endblock %} <!-- Override navbar block to exclude it -->
+
+{% block content %}
+<div class="header-section">
+  <div class="header-container">
+    <h1>PatternCraft Textile Design Generator</h1>
+    <p>Your source for innovative textile designs.</p>
+    <div class="mt-4">
+      <a href="login.html" class="btn btn-custom">Log In</a>
         <a href="signup.html" class="btn btn-custom">Sign Up</a>
-
-      </div>
     </div>
   </div>
+</div>
 
-  <!-- Motivation Section -->
-  <div class="container motivation-section">
-    <h2>Our Motivation</h2>
-    <p>We are dedicated to revolutionizing textile design by blending traditional<br>craftsmanship with modern technology. Our mission is to inspire creativity and<br>innovation in the textile industry.</p>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>All rights reserved 2024</p>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+<div class="container motivation-section">
+  <h2>Our Motivation</h2>
+  <p>We are dedicated to revolutionizing textile design by blending traditional<br>craftsmanship with modern technology. Our mission is to inspire creativity and<br>innovation in the textile industry.</p>
+</div>
+{% endblock %}
