@@ -5,19 +5,28 @@
 {% block navbar %}{% endblock %} <!-- Override navbar block to exclude it -->
 
 {% block content %}
-<div class="card-wrapper">
-  <div class="card">
+
+<div class="content-wrapper">
+  <div class="image-column">
+    <img src="{{ url_for('static', filename='images/bglogin.jpg') }}" alt="Image Beside Form" class="side-image">
+  </div>
+  <div class="form-column">
+    <div class="card">
+    <div class="card-wrapper">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
     <h1 class="center">Create an Account</h1>
     <form name="signup_form" method="POST" action="{{ url_for('signup') }}">
       <label for="name">Name</label>
-      <input type="text" name="name" class="field" required>
+      <input type="text" name="name" class="field" placeholder="Enter your name" required>
       <label for="email">Email</label>
-      <input type="email" name="email" class="field" required>
+      <input type="email" name="email" class="field" placeholder="Enter your email address" required>
       <label for="password">Password</label>
-      <input type="password" name="password" class="field" required>
+      <input type="password" name="password" placeholder="Enter your password" class="field" required>
       <p class="error error--hidden"></p>
       <input type="submit" value="Sign Up" class="btn-custom">
     </form>
   </div>
+</div>
+</div>
 </div>
 {% endblock %}
