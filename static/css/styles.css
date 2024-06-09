@@ -21,14 +21,16 @@
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
   height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures footer is at the bottom */
   font-family: sans-serif;
   font-size: 18px;
   line-height: 28px;
@@ -122,7 +124,7 @@ label {
   font-size: 16px;
   line-height: 26px;
   text-align: center;
-  color: var(--red);
+  color: var (--red);
 }
 
 .error--hidden {
@@ -177,13 +179,15 @@ input[type=submit] {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  height: 3em;
   background-color: rgb(241, 148, 163);
   width: 100%;
   position: relative;
+  bottom: 0;
+ /* Adjust the height as needed */
 }
 
 .footer p {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
 }
