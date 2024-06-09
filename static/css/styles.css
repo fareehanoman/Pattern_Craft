@@ -36,15 +36,6 @@ body {
   background: var(--white);
 }
 
-.container {
-  text-align: center;  /* Centers the logo and login card horizontally */
-}
-
-.container img {
-  display: block;  /* Makes the image element behave like a block-level element */
-  margin-bottom: 20px;  /* Adds some space between the logo and the login card */
-}
-
 .center {
   text-align: center;
 }
@@ -179,7 +170,7 @@ input[type=submit] {
 .btn-custom:hover {
   background-color: grey;
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.1);  /* Increases size of button with hover */
 }
 
 .btn-secondary {
