@@ -36,6 +36,15 @@ body {
   background: var(--white);
 }
 
+.container {
+  text-align: center;  /* Centers the logo and login card horizontally */
+}
+
+.container img {
+  display: block;  /* Makes the image element behave like a block-level element */
+  margin-bottom: 20px;  /* Adds some space between the logo and the login card */
+}
+
 .center {
   text-align: center;
 }
@@ -162,11 +171,23 @@ input[type=submit] {
   background-color: rgb(241, 148, 163);
   color: white;
   border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
 }
 
 .btn-custom:hover {
   background-color: grey;
   color: white;
+  transform: scale(1.1);
+}
+
+.btn-secondary {
+  background-color: rgb(241, 148, 163);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
 }
 
 .motivation-section {
