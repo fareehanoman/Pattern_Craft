@@ -55,3 +55,18 @@ class Prompt:
       return jsonify({ "error": "Failed to save prompt" }), 500
 
     return jsonify({ "error": "Failed to generate image" }), response.status_code
+
+  def get_user_prompts(self):
+    # Check if user is logged in
+    if not session.get('logged_in'):
+      return jsonify({ "error": "Unauthorized" }), 401
+    # Get the user id from the session
+    user_id = session['user']['_id']
+    # Query the database for prompts by this user, sorted in descending order by created_at
+    user_prompts = db.prompts.find({"user_id": user_id}).sort("created_at", -1)
+    # Convert the cursor to a list of dictionaries
+    prompts_list = []
+    for prompt in user_prompts:
+      prompt['_id'] = str(prompt['_id'])  # Convert ObjectId to string if necessary
+      prompts_list.append(prompt)
+    return jsonify({ "prompts": prompts_list }), 200
