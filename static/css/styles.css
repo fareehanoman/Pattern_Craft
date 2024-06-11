@@ -1,4 +1,5 @@
 :root {
+  --pink: rgb(241, 148, 163);
   --black: #000000;
   --almost-black: #263238;
   --white: #ffffff;
@@ -14,6 +15,25 @@
   --red: #EF4836;
 }
 
+/* Other existing CSS rules */
+
+.navbar-nav .nav-item .nav-link.active,
+.navbar-nav .nav-item .nav-link:hover {
+  position: relative;
+  color: var(--pink); /* Change text color on active or hover */
+}
+
+.navbar-nav .nav-item .nav-link.active::after,
+.navbar-nav .nav-item .nav-link:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; /* Adjust as needed */
+  height: 2px; /* Thickness of the underline */
+  background-color: var(--pink);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,6 +46,8 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -57,15 +79,73 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
 }
 
 .card {
   margin: 0 30px 60px;
   padding: 20px 40px;
-  width: 460px;
+  width: 100%;
+  max-width: 500px;
   box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
   border-radius: 5px;
   background: var(--white);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1; /* Ensures content-wrapper takes up the remaining space */
+}
+
+.image-column {
+  display: none;
+}
+
+.form-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.logo {
+  width: 100%; /* Adjust the size as needed */
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px; /* Space between the logo and the form */
+}
+
+@media only screen and (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+
+  .image-column {
+    display: block;
+    flex: 1;
+  }
+
+  .side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .form-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 520px) {
@@ -100,7 +180,7 @@ label {
 
 .field {
   margin: 0 0 24px;
-  padding: 11px 16px 9px;
+  padding: 11px 10px 9px;
   width: 100%;
   font-size: 16px;
   line-height: 26px;
@@ -122,7 +202,7 @@ label {
   font-size: 16px;
   line-height: 26px;
   text-align: center;
-  color: var(--red);
+  color: var (--red);
 }
 
 .error--hidden {
@@ -162,11 +242,35 @@ input[type=submit] {
   background-color: rgb(241, 148, 163);
   color: white;
   border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
 }
 
 .btn-custom:hover {
   background-color: grey;
   color: white;
+  transform: scale(1.1);
+}
+
+.btn-secondary {
+  background-color: rgb(241, 148, 163);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.signout-btn {
+  position: absolute;
+  top: 10px;
+  right: 6rem;
+  background-color: rgb(241, 148, 163);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  z-index: 1000; /* Ensure it's on top of other elements */
 }
 
 .motivation-section {
@@ -177,13 +281,13 @@ input[type=submit] {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  height: 3em;
   background-color: rgb(241, 148, 163);
   width: 100%;
-  position: relative;
+  margin-top: auto; /* Ensures footer is pushed to the bottom */
 }
 
 .footer p {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
 }

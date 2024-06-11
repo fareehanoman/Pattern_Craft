@@ -50,7 +50,7 @@ def gallery():
 def about():
   return render_template('about.html')
 
-@app.route('/index2.html/')
+@app.route('/index2.html')
 def index2():
   return render_template('index2.html')
 
