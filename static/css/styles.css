@@ -261,6 +261,20 @@ input[type=submit] {
   padding: 10px 20px;
 }
 
+.custom-grey-button {
+  background-color: grey;
+  border-color: grey;
+  color: white; 
+}
+
+.custom-grey-button:hover,
+.custom-grey-button:focus,
+.custom-grey-button:active {
+  background-color: darkgrey;
+  border-color: darkgrey;
+}
+
+
 .signout-btn {
   position: absolute;
   top: 10px;
