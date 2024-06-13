@@ -50,9 +50,9 @@ def gallery():
 def about():
   return render_template('about.html')
 
-@app.route('/home.html')
-def home():
-  return render_template('home.html')
+@app.route('/index2.html')
+def index2():
+  return render_template('index2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
