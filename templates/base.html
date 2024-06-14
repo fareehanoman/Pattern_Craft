@@ -8,15 +8,12 @@
   <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
-
-  
-  
+<body>  
 
   <!-- Navigation Bar -->
   {% block navbar %}
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">PatternCraft</a>
+    <a class="navbar-brand" href="home.html">PatternCraft</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,7 +21,7 @@
     <!-- Sign Out Button -->
     <a href="/user/signout" class="btn btn-secondary signout-btn">Sign Out</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link {% if request.endpoint == 'home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
@@ -36,6 +33,10 @@
           <a class="nav-link {% if request.endpoint == 'about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
         </li>
       </ul>
+      <!-- Welcome Message -->
+      <span class="navbar-text mx-auto">
+        Welcome, {{ session['user']['name'] }}
+    </span>
     </div>
   </nav>
   {% endblock %}
