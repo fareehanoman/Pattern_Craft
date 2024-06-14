@@ -263,14 +263,14 @@ input[type=submit] {
   transition: transform 0.2s, background-color 0.2s; /* Add smooth transition */
 }
 
-.btn-custom:focus, .btn-custom:active {
+.btn-custom:focus, .btn-custom:active, .btn-customhome:focus, .btn-customhome:active{
   background-color: rgb(241, 148, 163); /* Keep background color the same on focus and active */
   transform: scale(1.05); /* Slightly enlarge the button on click */
   outline: none; /* Remove default outline */
 }
 
 
-.btn-custom:hover {
+.btn-custom:hover, .btn-customhome:hover{
   background-color: grey;
   color: white;
   transform: scale(1.1);
