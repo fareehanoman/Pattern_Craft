@@ -78,7 +78,7 @@ def generate():
         return redirect(url_for('loginpage'))
 
     prompt_text = request.form.get('prompt')
-    print(prompt_text)
+    #print(prompt_text)
     if not prompt_text:
         return redirect(url_for('home'))
 
