@@ -1,5 +1,6 @@
 :root {
   --pink: rgb(241, 148, 163);
+  --lightpink: rgb(255, 243, 244);
   --black: #000000;
   --almost-black: #263238;
   --white: #ffffff;
@@ -109,6 +110,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--lightpink);
 }
 
 .side-image {
@@ -145,6 +147,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--lightpink);
   }
 }
 
@@ -332,7 +335,6 @@ input[type=submit] {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   margin-bottom: 20px; /* Add some space between the image and the footer */
 }
-
 
 .footer {
   text-align: center;
