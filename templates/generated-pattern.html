@@ -7,10 +7,7 @@
   <div class="col-md-8">
     <h1 class="text-center">Generated Pattern</h1>
     <div class="text-center">
-      <img src="{{ url_for('static', filename='images/generated-pattern.jpg') }}" alt="Generated Pattern" class="img-fluid">
-    </div>
-    <div class="text-center mt-3">
-      <button class="btn-custom btn-primary">Save Pattern</button>
+      <img src="data:image/png;base64,{{ image_data }}" alt="Generated Pattern" class="img-fluid">
     </div>
   </div>
 </div>
