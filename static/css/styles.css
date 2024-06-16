@@ -1,5 +1,6 @@
 :root {
   --pink: rgb(241, 148, 163);
+  --lightpink: rgb(255, 243, 244);
   --black: #000000;
   --almost-black: #263238;
   --white: #ffffff;
@@ -109,6 +110,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--lightpink);
 }
 
 .side-image {
@@ -145,6 +147,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--lightpink);
   }
 }
 
@@ -245,9 +248,32 @@ input[type=submit] {
   cursor: pointer;
   padding: 10px 20px;
   margin: 5px;
+  outline: none; /* Remove default outline */
+  transition: transform 0.2s, background-color 0.2s; /* Add smooth transition */
 }
 
-.btn-custom:hover {
+
+.btn-customhome {
+  position: absolute;
+  right: 23rem;
+  background-color: rgb(241, 148, 163);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
+  outline: none; /* Remove default outline */
+  transition: transform 0.2s, background-color 0.2s; /* Add smooth transition */
+}
+
+.btn-custom:focus, .btn-custom:active, .btn-customhome:focus, .btn-customhome:active{
+  background-color: rgb(241, 148, 163); /* Keep background color the same on focus and active */
+  transform: scale(1.05); /* Slightly enlarge the button on click */
+  outline: none; /* Remove default outline */
+}
+
+
+.btn-custom:hover, .btn-customhome:hover{
   background-color: grey;
   color: white;
   transform: scale(1.1);
@@ -291,6 +317,23 @@ input[type=submit] {
   padding: 50px 0;
   text-align: center;
   flex: 1; /* Ensure this section takes up remaining space */
+}
+
+
+.generated-pattern-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.generated-pattern {
+  max-width: 80%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px; /* Add some space between the image and the footer */
 }
 
 .footer {

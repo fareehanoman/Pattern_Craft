@@ -23,7 +23,7 @@
     <!-- New div for empty message, initially hidden -->
     <div class="row text-center text-lg-start d-none" id="empty-message">
         <div class="col-12">
-            <p class="fw-light">Your gallery is currently empty, fill it with your amazing creations!</p>
+            <p class="fw-light"> {{ session['user']['name'] }}, your gallery is currently empty, fill it with your amazing creations!</p>
             <button type="button" class="btn btn-secondary" id="get-started-button">Let's Get Started</button>
         </div>
     </div>

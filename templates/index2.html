@@ -6,12 +6,12 @@
 <div class="row justify-content-center">
   <div class="col-md-8">
     <h1 class="text-center">Generate Textile Patterns</h1>
-    <form action="{{ url_for('generated-pattern') }}">
+    <form action="{{ url_for('generate') }}" method="POST">
       <div class="form-group">
         <label for="inputPrompt">Enter Prompt to Generate Pattern:</label>
-        <input type="text" class="form-control" id="inputPrompt" placeholder="geometric pattern with flowers">
+        <input type="text" class="form-control" id="inputPrompt" name="prompt" placeholder="geometric pattern with flowers" required>
       </div>
-      <button type="submit" class="btn-custom btn-primary btn-block">Generate Pattern</button>
+      <button type="submit" class="btn btn-customhome">Generate Pattern</button>
     </form>
   </div>
 </div>
