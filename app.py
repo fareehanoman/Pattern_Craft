@@ -78,11 +78,31 @@ def generate():
         return redirect(url_for('loginpage'))
 
     prompt_text = request.form.get('prompt')
-    #print(prompt_text)
-    if not prompt_text:
+    design = request.form.get('design')
+    colour = request.form.get('colour')
+    bg_colour = request.form.get('bg_colour')
+    additional = request.form.get('additional')
+
+    # Logging the received form data
+    print(f"Received form data - prompt: {prompt_text}, design: {design}, colour: {colour}, bg_colour: {bg_colour}, additional: {additional}")
+
+    if prompt_text:
+        print("Calling generate_image function")
+        image_bytes = Prompt.generate_image(prompt_text)
+    elif design or colour or bg_colour or additional:
+        print("Calling generate_image_v2 function")
+        prompt_text = f"{design} pattern"
+        if colour:
+            prompt_text += f" having {colour} colour"
+        if bg_colour:
+            prompt_text += f" and {bg_colour} background"
+        if additional:
+            prompt_text += f" with {additional}"
+        prompt_text += " for textile"
+        image_bytes = Prompt.generate_image(prompt_text)
+    else:
         return redirect(url_for('home'))
 
-    image_bytes = Prompt.generate_image(prompt_text)
     if image_bytes:
         base64_bytes = base64.b64encode(image_bytes)
         base64_string = base64_bytes.decode('utf-8')
@@ -96,6 +116,7 @@ def generate():
         }
         db.prompts.insert_one(prompt)
         return render_template('generated-pattern.html', image_data=base64_string, prompt=prompt_text)
+    
     return redirect(url_for('home'))
 
 if __name__ == '__main__':

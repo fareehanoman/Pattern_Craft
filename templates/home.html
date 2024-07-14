@@ -6,13 +6,60 @@
 <div class="row justify-content-center">
   <div class="col-md-8">
     <h1 class="text-center">Generate Textile Patterns</h1>
-    <form action="{{ url_for('generate') }}" method="POST">
+    <form id="generateForm" action="{{ url_for('generate') }}" method="POST" onsubmit="showLoader()">
       <div class="form-group">
         <label for="inputPrompt">Enter Prompt to Generate Pattern:</label>
         <input type="text" class="form-control" id="inputPrompt" name="prompt" placeholder="geometric pattern with flowers" required>
       </div>
-      <button type="submit" class="btn btn-customhome">Generate Pattern</button>
+      <div class="form-group text-right">
+        <a href="#" id="toggleAdvancedSearch" onclick="toggleAdvancedFields()" class="advanced-search">Advanced Search</a>
+      </div>
+      <div id="advancedFields" style="display: none;">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" id="design" name="design" placeholder="Design">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="colour" name="colour" placeholder="Colour">
+          </div>
+        </div>
+        <div class="form-row mt-3">
+          <div class="col">
+            <input type="text" class="form-control" id="bg_colour" name="bg_colour" placeholder="Background Colour">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="additional" name="additional" placeholder="Additional">
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-customhome">Generate Pattern</button>
+      </div>
     </form>
+    <div id="loaderOverlay" class="loader-overlay" style="display: none;">
+      <div id="loader" class="loader"></div>
+    </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function toggleAdvancedFields() {
+    var advancedFields = document.getElementById('advancedFields');
+    var inputPrompt = document.getElementById('inputPrompt');
+    if (advancedFields.style.display === 'none') {
+      advancedFields.style.display = 'block';
+      inputPrompt.disabled = true;  // Disable the main input field
+    } else {
+      advancedFields.style.display = 'none';
+      inputPrompt.disabled = false; // Enable the main input field
+    }
+  }
+
+  function showLoader() {
+    document.getElementById('loaderOverlay').style.display = 'flex';
+    document.getElementById('generateForm').style.opacity = '0.5';
+  }
+</script>
 {% endblock %}
