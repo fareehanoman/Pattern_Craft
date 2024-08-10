@@ -5,13 +5,14 @@
 {% block navbar %}{% endblock %} <!-- Override navbar block to exclude it -->
 
 {% block content %}
+<div class="landing-page-content">
 <div class="header">
   <div class="header-section">
     <div class="header-container">
       <h1>PatternCraft Textile Design Generator</h1>
       <p>Your source for innovative textile designs.</p>
       <div class="mt-4">
-        <a href="login.html" class="btn btn-custom">Log In</a>
+        <a href="login.html" class="btn btn-custom">Sign In</a>
         <a href="signup.html" class="btn btn-custom">Sign Up</a>
       </div>
     </div>
@@ -23,4 +24,17 @@
   <h2>Our Motivation</h2>
   <p>We are dedicated to revolutionizing textile design by blending traditional<br>craftsmanship with modern technology. Our mission is to inspire creativity and<br>innovation in the textile industry.</p>
 </div>
+
+<div class="container sponsor-section">
+  <h2 style = "text-align:center">Our Sponsor</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{ url_for('static', filename='images/Logo-Markhor.jpg') }}" alt="Logo" class="logo">
+    </div>
+    <div class="col-md-8">
+      <p>We are proud to be sponsored by Markhor Lifestyle, a leader in textile manufacturing and innovation. Markhor Lifestyle has been at the forefront of the industry, providing cutting-edge technology and sustainable solutions that align with our mission to innovate and inspire in the textile world.</p>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
