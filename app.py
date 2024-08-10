@@ -14,7 +14,7 @@ client = pymongo.MongoClient('localhost', 27017)
 db = client.user_login_system
 
 HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-headers = {"Authorization": f"Bearer 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"}
+headers = {"Authorization": f"API Token Bearer"}
 
 # Decorators
 def login_required(f):
@@ -57,22 +57,27 @@ def signuppage():
 
 # Frontend 
 @app.route('/generated-pattern.html')
+@login_required
 def generatedpattern():
     return render_template('generated-pattern.html')
 
 @app.route('/gallery.html')
+@login_required                     # Added login decorator to protect routes
 def gallery():
     return render_template('gallery.html')
 
 @app.route('/about.html')
+@login_required
 def about():
     return render_template('about.html')
 
 @app.route('/home.html')
+@login_required
 def home():
     return render_template('home.html')
 
 @app.route('/generate', methods=['POST'])
+@login_required
 def generate():
     if not session.get('logged_in'):
         return redirect(url_for('loginpage'))
@@ -109,15 +114,15 @@ def generate():
         
         prompt = {
             "_id": uuid.uuid4().hex,
-            "user_id": session['user']['_id'],
+            "user_id": session['user']['sub'],
             "prompt": prompt_text,
             "image": base64_string,
             "created_at": datetime.now(timezone.utc).isoformat()
         }
         db.prompts.insert_one(prompt)
         return render_template('generated-pattern.html', image_data=base64_string, prompt=prompt_text)
-    
     return redirect(url_for('home'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
