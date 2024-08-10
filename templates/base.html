@@ -5,8 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}PatternCraft{% endblock %}</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    body {
+      overflow-y: auto; /* Ensure vertical scrolling is allowed */
+    }
+
+    .content {
+      min-height: 180vh; /* Ensure content takes at least full height of the viewport */
+    }
+     /* Styling for Webkit-based browsers (Chrome, Safari, etc.) */
+     ::-webkit-scrollbar {
+      width: 12px; /* Width of the entire scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Color of the scrollbar track */
+      border-radius: 10px; /* Round the corners of the scrollbar track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #888; /* Color of the scrollbar thumb */
+      border-radius: 10px; /* Round the corners of the scrollbar thumb */
+      border: 3px solid #f1f1f1; /* Creates padding around the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Color of the scrollbar thumb when hovered */
+    }
+
+    /* Styling for Firefox */
+    body {
+      scrollbar-width: thin; /* Make scrollbar thinner */
+      scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+    }
+  </style>
 </head>
 <body>  
 
@@ -36,17 +72,35 @@
       <!-- Welcome Message -->
       <span class="navbar-text mx-auto">
         Welcome, {{ session['user']['name'] }}
-    </span>
+      </span>
     </div>
-  </nav>
+  </nav>  
   {% endblock %}
 
+
   <!-- Page Content -->
-  {% block content %}{% endblock %}
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
     <p>All Rights Reserved 2024</p>
+    <h4 style="color: white">Share Your Patterns</h4>
+    <div id="share-buttons">
+      <!-- facebook -->
+      <a class="facebook" target="blank"><i class="fab fa-facebook" style="font-size: 36px;"></i></a>
+      <!-- twitter -->
+      <a class="twitter" target="blank"><i class="fab fa-twitter" style="font-size: 36px;"></i></a>
+      <!-- linkedin -->
+      <a class="linkedin" target="blank"><i class="fab fa-linkedin" style="font-size: 36px;"></i></a>
+      <!-- reddit -->
+      <a class="reddit" target="blank"><i class="fab fa-reddit" style="font-size: 36px;"></i></a>
+      <!-- whatsapp -->
+      <a class="whatsapp" target="blank"><i class="fab fa-whatsapp" style="font-size: 36px;"></i></a>
+      <!-- telegram -->
+      <a class="telegram" target="blank"><i class="fab fa-telegram" style="font-size: 36px;"></i></a>
+    </div>
   </footer>
 
   <!-- Bootstrap Scripts -->
