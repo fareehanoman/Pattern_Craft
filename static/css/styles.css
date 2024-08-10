@@ -76,7 +76,7 @@ p {
 
 .card-wrapper {
   margin: 0 auto;
-  padding: 90px 30px;
+  padding: 60px 30px; /* Reduced padding */
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
@@ -85,12 +85,12 @@ p {
 }
 
 .card {
-  margin: 0 30px 60px;
+  margin: 0 30px 30px; /* Reduced margin */
   padding: 20px 40px;
   width: 100%;
-  max-width: 500px;
+  max-width: 450px; /* Reduced max-width */
   box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
-  border-radius: 5px;
+  border-radius: 10px; /* Increased border-radius */
   background: var(--white);
 }
 
@@ -119,14 +119,50 @@ p {
   object-fit: cover;
 }
 
+.password-field {
+  position: relative;
+  margin-bottom: 24px; /* Space between the password field and next element */
+}
+
+.password-toggle {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle i {
+  font-size: 18px;
+  color: var(--grey-medium);
+}
+
+.field {
+  padding-right: 40px; /* Ensure space for the icon */
+  height: 36px; /* Adjust height to match placeholder alignment */
+  line-height: 36px; 
+}
+
+.field:focus + .password-toggle i {
+  color: var(--grey-dark); /* Change icon color when field is focused */
+}
+
 .logo {
   width: 100%; /* Adjust the size as needed */
-  max-width: 300px;
+  max-width: 250px; /* Reduced max-width */
   height: auto;
   margin-bottom: 20px; /* Space between the logo and the form */
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 325px) {
+html,body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--lightpink);
+
+}
+
   .content-wrapper {
     flex-direction: row;
   }
@@ -147,7 +183,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--lightpink);
   }
 }
 
@@ -173,7 +208,7 @@ form.loading {
 }
 
 label {
-  margin: 0 0 2px;
+  margin: 0 0 6px; /* Increased margin */
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 1px;
@@ -201,11 +236,11 @@ label {
 }
 
 .error {
-  margin: 0;
+  margin: 12px 0; /* Increased margin */
   font-size: 16px;
   line-height: 26px;
   text-align: center;
-  color: var (--red);
+  color: var(--red); /* Fixed color variable */
 }
 
 .error--hidden {
@@ -213,12 +248,24 @@ label {
 }
 
 input[type=submit] {
-  margin: 34px auto 24px;
+  margin: 24px auto 24px; /* Reduced margin */
   display: block;
+  padding: 12px 30px; /* Increased padding */
+  background-color: var(--pink); /* Used CSS variable for consistency */
+  color: var(--white);
+  border: none;
+  border-radius: 5px; /* Added border-radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+input[type=submit]:hover {
+  background-color: var(--primary-dark); /* Changed hover color */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
 .header-section {
-  background-image: url('../images/bg-image.png');
+  background-image: url('../images/bg-image.png'); /* Correct reference to static folder */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -232,13 +279,13 @@ input[type=submit] {
 }
 
 .header-container {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9); /* Change color as needed */
   padding: 20px;
   border-radius: 8px;
 }
 
 .header-container h1, .header-container p {
-  color: #333;
+  color: #333; /* Adjust text color as needed */
 }
 
 .advanced-search {
@@ -254,8 +301,8 @@ input[type=submit] {
   cursor: pointer;
   padding: 10px 20px;
   margin: 5px;
-  outline: none;
-  transition: transform 0.2s, background-color 0.2s;
+  outline: none; 
+  transition: transform 0.2s, background-color 0.2s; 
 }
 
 .btn-customhome {
@@ -265,14 +312,14 @@ input[type=submit] {
   cursor: pointer;
   padding: 10px 20px;
   margin: 5px;
-  outline: none;
-  transition: transform 0.2s, background-color 0.2s;
+  outline: none; 
+  transition: transform 0.2s, background-color 0.2s; 
 }
 
 .btn-custom:focus, .btn-custom:active, .btn-customhome:focus, .btn-customhome:active {
-  background-color: rgb(241, 148, 163);
-  transform: scale(1.05);
-  outline: none;
+  background-color: rgb(241, 148, 163); 
+  transform: scale(1.05); 
+  outline: none; 
 }
 
 .btn-custom:hover, .btn-customhome:hover {
@@ -292,7 +339,7 @@ input[type=submit] {
 .custom-grey-button {
   background-color: grey;
   border-color: grey;
-  color: white;
+  color: white; 
 }
 
 .custom-grey-button:hover,
@@ -311,13 +358,45 @@ input[type=submit] {
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  z-index: 1000;
+  z-index: 1000; 
 }
 
+
+@keyframes typingAnimation {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Apply repeating typing animation to .motivation-section */
 .motivation-section {
   padding: 50px 0;
   text-align: center;
-  flex: 1;
+  flex: 1; /* Ensure this section takes up remaining space */
+  overflow: hidden; /* Hide overflow to clip text that overflows */
+}
+
+.motivation-section h2,
+.motivation-section p {
+  display: inline-block; /* Make text appear inline for typing effect */
+  animation: typingAnimation 10s infinite; /* Typing animation with 5 second duration and infinite repeat */
+  animation-delay: 7s; /* Delay before animation starts */
+  overflow: hidden; /* Hide overflow to clip text that overflows */
+  white-space: nowrap; /* Prevent text from wrapping */
+  border-right: 2px solid transparent; /* Cursor style border */
+  width: 60%; /* Adjust width of the typing effect */
+}
+
+/* Ensure animation starts when element is in view */
+.motivation-section.animated h2,
+.motivation-section.animated p {
+  animation-play-state: running; /* Ensure animation plays when in view */
 }
 
 .generated-pattern-container {
@@ -333,15 +412,15 @@ input[type=submit] {
   object-fit: contain;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Add some space between the image and the footer */
 }
 
 .footer {
   text-align: center;
-  height: 3em;
+  height: 13em;
   background-color: rgb(241, 148, 163);
   width: 100%;
-  margin-top: auto;
+  margin-top: auto; /* Ensures footer is pushed to the bottom */
 }
 
 .footer p {
@@ -380,4 +459,41 @@ input[type=submit] {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+#share-container span {
+  display: block;
+  margin: 3rem auto;
+  font-size: 50px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#share-buttons i {
+  font-size: 100px;
+  margin: 20px;
+}
+.facebook {
+      color: #3b5998;
+}
+.twitter {
+    color: #55acee;
+}
+.linkedin {
+    color: #0077b5;
+}
+.reddit {
+    color: #cb2027;
+}
+.whatsapp {
+    color: #25D366;
+}
+.telegram {
+    color: #229ED9;
+}
+.facebook, .twitter, .linkedin, .reddit, .whatsapp, .telegram {
+  opacity: 0.6;
+}
+.facebook:hover, .twitter:hover, .linkedin:hover, .reddit:hover, .whatsapp:hover, .telegram:hover {
+  opacity: 0.9;
 }
