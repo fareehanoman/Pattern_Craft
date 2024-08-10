@@ -2,7 +2,7 @@
 
 {% block title %}Textile Pattern Generation{% endblock %}
 
-{% block navbar %}{% endblock %} <!-- Override navbar block to exclude it -->
+{% block navbar %}{% endblock %} 
 
 {% block content %}
   <div class="content-wrapper">
@@ -11,19 +11,50 @@
     </div>
     <div class="form-column">
       <div class="card">
-      <div class="card-wrapper">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
-        <h1 class="center">Log In</h1>
-        <form name="login_form" method="POST" action="{{ url_for('login') }}">
-          <label for="email">Email</label>
-          <input type="email" name="email" class="field" placeholder="Enter your email address" required>
-          <label for="password">Password</label>
-          <input type="password" name="password" class="field" placeholder="Enter your password" required>
-          <p class="error error--hidden"></p>
-          <input type="submit" value="Let's Generate Patterns" class="btn-custom">
-        </form>
+        <div class="card-wrapper">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+          <h1 class="center">Log In</h1>
+          <form name="login_form" method="POST" action="{{ url_for('login') }}" onsubmit="return validateForm()">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="field" placeholder="Enter your email address" required>
+            <label for="password">Password</label>
+  <div class="password-field">
+    <input type="password" name="password" id="password" class="field" placeholder="Enter your password" required pattern=".{8,}">
+    <span class="password-toggle" onclick="togglePasswordVisibility()">
+      <i id="password-toggle-icon" class="fa fa-eye-slash"></i>
+    </span>
+  </div>
+            <p class="error error--hidden"></p>
+            <input type="submit" value="Let's Generate Patterns" class="btn-custom">
+          </form>
+        </div>
       </div>
     </div>
-    </div>
   </div>
+
+  <script>
+    function validateForm() {
+      const email = document.forms["login_form"]["email"].value;
+      const password = document.forms["login_form"]["password"].value;
+      const errorElement = document.querySelector(".error");
+
+      // Email validation
+      const emailPattern = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
+      if (!emailPattern.test(email)) {
+        errorElement.textContent = "Invalid email address.";
+        errorElement.classList.remove("error--hidden");
+        return false;
+      }
+
+      // Password validation
+      if (password.length < 8) {
+        errorElement.textContent = "Password must be at least 8 characters long.";
+        errorElement.classList.remove("error--hidden");
+        return false;
+      }
+
+      errorElement.classList.add("error--hidden");
+      return true;
+    }
+  </script>
 {% endblock %}
