@@ -21,7 +21,12 @@
       <label for="email">Email</label>
       <input type="email" name="email" class="field" placeholder="Enter your email address" required>
       <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Enter your password" class="field" required>
+          <div class="password-field">
+            <input type="password" name="password" id="password" class="field" placeholder="Enter your password" required pattern=".{8,}">
+            <span class="password-toggle" onclick="togglePasswordVisibility()">
+              <i id="password-toggle-icon" class="fa fa-eye-slash"></i>
+            </span>
+          </div>
       <p class="error error--hidden"></p>
       <input type="submit" value="Sign Up" class="btn-custom">
     </form>
