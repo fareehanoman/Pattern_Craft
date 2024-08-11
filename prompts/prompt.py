@@ -4,9 +4,7 @@ import uuid
 import requests
 import base64
 from datetime import datetime, timezone
-
-HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-headers = {"Authorization": f"YOUR_API_TOKEN"}
+from prompts.api_info import HUGGINGFACE_API_URL, headers
 
 class Prompt:
 
