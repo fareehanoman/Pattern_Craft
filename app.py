@@ -14,7 +14,7 @@ client = pymongo.MongoClient('localhost', 27017)
 db = client.user_login_system
 
 HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-headers = {"Authorization": f"API Token Bearer"}
+headers = {"Authorization": f"YOUR_API_TOKEN"}
 
 # Decorators
 def login_required(f):
@@ -114,7 +114,7 @@ def generate():
         
         prompt = {
             "_id": uuid.uuid4().hex,
-            "user_id": session['user']['sub'],
+            "user_id": session['user']['_id'],
             "prompt": prompt_text,
             "image": base64_string,
             "created_at": datetime.now(timezone.utc).isoformat()
